@@ -1,6 +1,6 @@
-# DataVisPro - CSV Data Visualizer
+# DataVisCSV - CSV Data Visualizer
 
-**DataVisPro** is a free, privacy-focused, browser-based tool for visualizing CSV data as interactive charts, graphs, and tables. No coding required.
+**DataVisCSV** is a free, privacy-focused, browser-based tool for visualizing CSV data as interactive charts, graphs, and tables. No coding required.
 
 ---
 
