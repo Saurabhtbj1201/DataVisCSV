@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DataVisPro - CSV Data Visualizer</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">DataVis<span class="logo-pro">CSV</span></div>
+            <button id="menuToggle" class="menu-toggle" aria-label="Open navigation">
+                <i class="fas fa-ellipsis-v"></i>
+            </button>
+            <div class="nav-links-container">
+                <ul id="navLinks">
+                    <li><a href="#how-it-works">How It Works</a></li>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#excel-converter">Excel Converter</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                    <li><a href="#learn-more-content" class="cta-button-nav">Learn More</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="hero">
+            <div class="hero-content">
+                <h1>Transform Your Data Into Powerful Visualizations</h1>
+                <p>Create beautiful, interactive charts, maps, and tables from your CSV data in minutes. No coding required.</p>
+                <div class="hero-buttons">
+                    <a href="#visualizer-tool" class="cta-button">Start Visualizing <i class="fas fa-chart-line"></i></a>
+                    <a href="#learn-more-content" class="cta-button-outline">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+            </section>
+
+        <section id="visualizer-tool" class="tool-section">
+            <h2><i class="fas fa-upload"></i> Upload & Visualize Your CSV</h2>
+            <div class="upload-area">
+                <label for="csvFileInput" class="upload-button">
+                    <i class="fas fa-file-csv"></i> Choose CSV File
+                </label>
+                <input type="file" id="csvFileInput" accept=".csv">
+                <p id="fileName" class="file-name-display">No file chosen</p>
+                <button id="sampleDataButton" class="small-button"><i class="fas fa-table"></i> Try Sample Data</button>
+            </div>
+
+            <div id="controlsArea" style="display:none;">
+                <h3>Chart Configuration</h3>
+                <div class="control-group">
+                    <label for="chartType"><i class="fas fa-chart-bar"></i> Chart Type:</label>
+                    <select id="chartType">
+                        <option value="bar">Bar Chart</option>
+                        <option value="line">Line Chart</option>
+                        <option value="pie">Pie Chart</option>
+                        <option value="doughnut">Doughnut Chart</option>
+                        <option value="scatter">Scatter Plot</option>
+                        <option value="polarArea">Polar Area Chart</option>
+                        <option value="radar">Radar Chart</option>
+                    </select>
+                </div>
+                <div class="control-group">
+                    <label for="xAxisColumn"><i class="fas fa-arrows-alt-h"></i> X-Axis / Labels:</label>
+                    <select id="xAxisColumn"></select>
+                </div>
+                <div class="control-group">
+                    <label for="yAxisColumn"><i class="fas fa-arrows-alt-v"></i> Y-Axis / Values:</label>
+                    <select id="yAxisColumn"></select>
+                </div>
+                <div class="control-group" id="yAxisColumnMultiGroup" style="display:none;">
+                    <label for="yAxisColumnMulti"><i class="fas fa-layer-group"></i> Y-Axis / Datasets (for Scatter/Radar):</label>
+                    <div id="yAxisColumnMultiCheckboxes"></div>
+                    <small>Select at least two for Scatter, multiple for Radar.</small>
+                </div>
+                <button id="generateChartButton" class="cta-button"><i class="fas fa-sync-alt"></i> Generate Chart</button>
+            </div>
+
+            
+            <div class="chart-container">
+                <canvas id="myChart"></canvas>
+            </div>
+             <div id="dataPreviewArea" style="display:none;">
+                <h3><i class="fas fa-table"></i> Data Preview (First 10 Rows)</h3>
+                <table id="csvPreviewTable"></table>
+            </div>
+        </section>
+
+        <section id="learn-more-content">
+            <section id="powerful-visualizations">
+                <h2><i class="fas fa-lightbulb"></i> Powerful Visualizations for Any Field</h2>
+                <div class="cards-container">
+                    <div class="card">
+                        <i class="fas fa-chart-pie card-icon"></i>
+                        <h3>Business Analytics</h3>
+                        <p>Analyze sales trends, customer behavior, marketing performance, and financial data to drive business decisions.</p>
+                    </div>
+                    <div class="card">
+                        <i class="fas fa-flask card-icon"></i>
+                        <h3>Scientific Research</h3>
+                        <p>Visualize experimental results, statistical analyses, and research findings for publications and presentations.</p>
+                    </div>
+                    <div class="card">
+                        <i class="fas fa-search-dollar card-icon"></i>
+                        <h3>Data Analysis</h3>
+                        <p>Explore datasets from any field including healthcare, education, finance, and more with powerful visualization tools.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="how-it-works">
+                <h2><i class="fas fa-cogs"></i> How It Works</h2>
+                <div class="steps-container">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <i class="fas fa-file-upload step-icon"></i>
+                        <h3>Upload Your Data</h3>
+                        <p>Upload your CSV file or try our sample dataset to get started quickly.</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <i class="fas fa-filter step-icon"></i>
+                        <h3>Explore & Filter</h3>
+                        <p>Browse your data, apply filters (feature not yet implemented in this demo), and understand the structure of your dataset.</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <i class="fas fa-magic step-icon"></i>
+                        <h3>Visualize Insights</h3>
+                        <p>Choose from AI-recommended visualizations (feature not yet implemented) or create your own custom charts and graphs.</p>
+                    </div>
+                </div>
+                <div class="text-center">
+                     <a href="#visualizer-tool" class="cta-button">Create Your Free Data Visualization Now</a>
+                </div>
+            </section>
+
+            <section id="excel-converter" class="feature-section">
+                <h2><i class="far fa-file-excel"></i> Excel to CSV Converter</h2>
+                <p>Convert your Excel files to CSV format for easy data visualization. (Note: This is a conceptual section; converter not implemented in this demo.)</p>
+                <div class="feature-highlights">
+                    <div><i class="fas fa-copy"></i> Multi-sheet support</div>
+                    <div><i class="fas fa-eye"></i> Data preview</div>
+                    <div><i class="fas fa-bolt"></i> Direct analysis</div>
+                    <div><i class="fas fa-file-excel"></i> XLSX & XLS support</div>
+                </div>
+                 <button class="cta-button-outline" disabled>Try Excel Converter (Coming Soon)</button>
+            </section>
+
+            <section id="features" class="why-choose">
+                <h2><i class="fas fa-star"></i> Why Choose DataVisPro: Your Free AI Data Visualizer</h2>
+                <p>Our free AI-powered data visualizer transforms your CSV & Excel data into insightful charts, graphs, and plots effortlessly.</p>
+                <ul>
+                    <li><i class="fas fa-tachometer-alt"></i> <strong>Instant CSV Data Visualization:</strong> Create Charts & Graphs. No coding needed.</li>
+                    <li><i class="fas fa-robot"></i> <strong>AI-Powered Data Visualization & Chart Recommendations:</strong> (Conceptual) Uncover hidden patterns.</li>
+                    <li><i class="fas fa-exchange-alt"></i> <strong>Easy Excel to CSV Conversion:</strong> (Conceptual) Seamlessly convert for immediate visualization.</li>
+                    <li><i class="fas fa-user-shield"></i> <strong>Privacy-Focused Data Visualization:</strong> Files processed in your browser, never leaving your device.</li>
+                    <li><i class="fas fa-sitemap"></i> <strong>Multiple Chart Types:</strong> Bar, line, pie, scatter, area charts, and more.</li>
+                    <li><i class="fas fa-share-alt"></i> <strong>Easy Sharing:</strong> Export charts for presentations or reports.</li>
+                </ul>
+            </section>
+
+            <section id="understanding-csv" class="content-block">
+                <h2><i class="fas fa-file-alt"></i> Understanding CSV Data for Effective Visualization</h2>
+                <h3>What is CSV Data? (Key for Simple Data Visualization)</h3>
+                <p>CSV (Comma-Separated Values) is a plain text file format storing tabular data. Each line is a row, columns separated by commas – perfect input for any data visualizer.</p>
+                <h3>Benefits of CSV Format for Data Visualization</h3>
+                <ul>
+                    <li><strong>Universal Compatibility:</strong> Works with virtually any data visualizer.</li>
+                    <li><strong>Lightweight Format:</strong> Faster uploads and processing.</li>
+                    <li><strong>Easy to Generate:</strong> Export data as CSV from most sources.</li>
+                    <li><strong>Human-Readable:</strong> View and edit in any text editor.</li>
+                </ul>
+            </section>
+
+            <section id="free-data-resources" class="content-block">
+                <h2><i class="fas fa-database"></i> Free Data Resources for Visualization</h2>
+                <p>Discover free CSV data sources to practice with our data visualizer:</p>
+                <ul>
+                    <li><strong>Government Data Portals:</strong> Data.gov, EU Open Data Portal, UK Data Service.</li>
+                    <li><strong>International Organizations:</strong> World Bank, WHO, UN Data.</li>
+                    <li><strong>Academic & Research Repositories:</strong> Kaggle, Google Dataset Search, Harvard Dataverse.</li>
+                </ul>
+                <p><strong>Pro Tip:</strong> When downloading free data, look for CSV format. If data is in Excel, use our (conceptual) free Excel to CSV converter.</p>
+            </section>
+
+            <section id="data-to-insights" class="content-block">
+                 <h2><i class="fas fa-chart-line"></i> From Data to Insights: The Data Visualization & Analysis Process</h2>
+                 <p>See how our data visualization tool helps extract meaningful insights from raw CSV or Excel data.</p>
+                 <ol>
+                    <li><strong>Data Collection & Preparation:</strong> Gather and prepare your CSV.</li>
+                    <li><strong>Data Analysis & Exploration:</strong> Use visualization tools to explore patterns.</li>
+                    <li><strong>Data Insights through Powerful Visualization:</strong> Transform analysis into actionable insights.</li>
+                    <li><strong>Share Your Data Visualization Insights:</strong> Make data-driven decisions.</li>
+                 </ol>
+            </section>
+
+            <section id="faq" class="content-block">
+                <h2><i class="fas fa-question-circle"></i> Data Visualization FAQ</h2>
+                <details>
+                    <summary>How do I visualize my CSV data to create charts or graphs?</summary>
+                    <p>Simply upload your CSV file using the "Choose CSV File" button, select your desired X and Y axes columns, choose a chart type, and click "Generate Chart".</p>
+                </details>
+                <details>
+                    <summary>Is my data secure with this online data visualizer?</summary>
+                    <p>Yes, your data security is paramount. All CSV processing and visualization happen entirely in your browser. Your files never leave your device and are not uploaded to any server.</p>
+                </details>
+                 <details>
+                    <summary>Can I visualize Excel data or convert Excel to CSV?</summary>
+                    <p>This tool directly visualizes CSV files. For Excel files (XLSX, XLS), you would typically need to convert them to CSV first. We have a section describing a conceptual Excel to CSV converter.</p>
+                </details>
+                <details>
+                    <summary>What types of charts, graphs, and data visualizations can I create?</summary>
+                    <p>You can create various charts including bar charts, line graphs, pie charts, scatter plots, doughnut charts, polar area charts, and radar charts.</p>
+                </details>
+                 <details>
+                    <summary>Is this free data visualizer really free?</summary>
+                    <p>Yes, this tool is free to use for visualizing your CSV data directly in your browser.</p>
+                </details>
+            </section>
+
+            <section id="getting-started-final" class="content-block">
+                <h2><i class="fas fa-rocket"></i> Getting Started with Our Free Data Visualizer</h2>
+                <ol>
+                    <li><strong>Prepare Your Data:</strong> Organize data in a CSV file with clear headers.</li>
+                    <li><strong>Upload Your Data:</strong> Use the secure uploader to import your CSV.</li>
+                    <li><strong>Explore & Visualize:</strong> Select columns, choose chart types, and generate visualizations.</li>
+                    <li><strong>Share Insights:</strong> Download charts and use insights for decision-making.</li>
+                </ol>
+            </section>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; <span id="currentYear"></span> DataVisCSV. All rights reserved. <a href="https://www.linkedin.com/in/saurabhtbj1201/" target="_blank" rel="noopener">Saurabh Kumar</a></p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/papaparse@5.3.0/papaparse.min.js"></script> <script src="script.js"></script>
+</body>
+</html>
